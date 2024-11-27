@@ -2,6 +2,7 @@ liste_mdp = []
 mot_depasse=input("veuillez entrer votre mot de passe:")
 liste_mdp.append(mot_depasse)
 
+
 lettre_majuscule= "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 lettre_miniscule= "abcdefghijklmnopqrstuvwxyz"
 
@@ -40,3 +41,12 @@ if not any (char in mot_depasse for char in lettre_miniscule):
 
 else :
   print("votre mot de passe est correct")
+
+
+
+import hashlib
+hash_obj = hashlib.sha256() 
+hash_obj.update(mot_depasse.encode('utf-8'))
+hash_hex = hash_obj.hexdigest()
+
+print(f"mot de passe crypté: {hash_hex}")
