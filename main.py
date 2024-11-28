@@ -48,5 +48,11 @@ import hashlib
 hash_obj = hashlib.sha256() 
 hash_obj.update(mot_depasse.encode('utf-8'))
 hash_hex = hash_obj.hexdigest()
-
 print(f"mot de passe crypté: {hash_hex}")
+
+
+def save_passwords_to_json(passwords, filename):
+    with open(filename, 'w') as file:
+     json.dump(passwords, file)
+
+
